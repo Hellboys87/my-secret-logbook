@@ -17,6 +17,10 @@ if (LINE.length < 1 || LINE.length > MAX_CHARS) {
   fail(`diary line must be 1-${MAX_CHARS} characters, got ${LINE.length}`);
 }
 
+if (LINE.trim().length === 0) {
+  fail("diary line must not be only whitespace");
+}
+
 if (LINE.includes("\n") || LINE.includes("\r")) {
   fail("diary line must be a single line with no line breaks");
 }
